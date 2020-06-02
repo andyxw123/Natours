@@ -1,0 +1,56 @@
+/* Animations for heading-primary-main 
+   For animations to work have to specify
+   animation-name and animation-duration
+   on the class
+*/
+@keyframes moveInLeft {
+  0% {
+    /* Initial state */
+    opacity: 0;
+    transform: translateX(-10rem);
+  }
+
+  80% {
+    /* Mid state */
+    transform: translateX(1rem);
+  }
+
+  100% {
+    /* Mid state */
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    /* Initial state */
+    opacity: 0;
+    transform: translateX(10rem);
+  }
+
+  80% {
+    /* Mid state */
+    transform: translateX(-1rem);
+  }
+
+  100% {
+    /* Mid state */
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInBottom {
+  0% {
+    /* Initial state */
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+
+  100% {
+    /* Mid state */
+    opacity: 1;
+    transform: translate(0);
+  }
+}

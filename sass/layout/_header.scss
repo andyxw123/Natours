@@ -1,0 +1,35 @@
+.header {
+  height: 95vh;
+  position: relative;
+  background-image: linear-gradient(
+      to right bottom,
+      // SASS allows you to put HEX colours in RGBA values
+        rgba($color-primary-light, 0.801),
+      rgba($color-primary-dark, 0.808)
+    ),
+    url('../img/hero.jpg');
+  background-size: cover;
+  background-position: top;
+  /* Clip the bottom of the image
+    ...coordinates clockwise from top left */
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+  &__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+  }
+
+  &__logo {
+    height: 3.5rem;
+  }
+
+  /* Position in center of header */
+  &__text-box {
+    position: absolute; /* Header is already position:relative */
+    top: 40%; /* 40% of parent size */
+    left: 50%; /* 50% of parent size */
+    transform: translate(-50%, -50%); /* 50% of self */
+    text-align: center;
+  }
+}

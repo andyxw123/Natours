@@ -1,0 +1,10 @@
+
+@function grid-col-width($columnOf, $columns) {
+  @return calc(
+    #{$columnOf} * 
+    ((100% - (#{$gutter-horizontal} * (#{$columns} - 1))) / #{$columns})
+    + (#{$gutter-horizontal} * (#{$columnOf} - 1))
+  );
+}
+
+

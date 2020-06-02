@@ -1,0 +1,30 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  /* box-sizing doesn't inherit by default set inherit on all elements
+     and set the value to border-box in the body. This will allow the
+     box-sizing to be changed and inherited at lower element levels */
+  box-sizing: inherit;
+}
+
+html {
+  /* The default font size from the browser will be 16px if we don't set anything */
+  /* Set the root font-size used by rem units in the html declaration */
+  /* Use 10px as rems will be easier to calculate (div by 10)*/
+  /* So font-size to a percentage of the browsers 16px default size */
+  /* This means that changing the zoom (i.e. font size) in the browser will 
+     change all values declared in rem */
+
+  // As the font-size below essentially dictates a scaling factor for 
+  // the website declare it here rather than in _typography.scss
+
+  // This defines what 1rem represents
+  font-size: 62.5%; /* 10px / 16px = 62.5 % */
+}
+
+body {
+  // _typography.scss also contains font declaration for the body
+  box-sizing: border-box;
+}

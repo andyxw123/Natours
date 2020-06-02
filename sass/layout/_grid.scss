@@ -1,0 +1,21 @@
+.row {
+  max-width: $grid-width; // 1140px is the standard row width
+  margin: 0 auto; // Center horizonally
+
+  &:not(:last-child) {
+    margin-bottom: $gutter-vertical;
+  }
+
+  @include clearfix;
+
+  [class^='col-'] {
+    float: left;
+
+    &:not(:last-child) {
+      margin-right: $gutter-horizontal;
+    }
+  }
+
+  //mixin includes a loop to create classes for the various levels of columns
+  @include grid-col-x-of-y;
+}

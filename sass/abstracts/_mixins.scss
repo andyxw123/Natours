@@ -1,0 +1,18 @@
+@mixin clearfix {
+  &::after {
+    content: '';
+    clear: both;
+    display: table;
+  }
+}
+
+@mixin grid-col-x-of-y {
+  @for $y from 1 through $grid-col-count {
+    @for $x from 1 through $y {
+      .col-#{$x}-of-#{$y} { 
+        width: grid-col-width($x, $y);
+      }
+    }
+  }
+}
+
