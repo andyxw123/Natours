@@ -59,3 +59,27 @@
     animation-fill-mode: backwards; /* Starts at initial state during delay */
   }
 }
+
+.btn-text {
+  &:link,
+  &:visited {
+    background-color: $color-primary;
+    color: $color-white;
+    display: inline-block;
+    padding: .25rem 1.5rem;
+    text-decoration: none;
+    transition: all .1s;
+    border-radius: 10rem;
+  }
+
+  &:hover {
+    background-color: $color-primary-dark;
+    transform: translateY(-2px);
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+  }
+
+  &:active {
+    transform: translateY(0); /* in relation to the initial state */
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+  }
+}

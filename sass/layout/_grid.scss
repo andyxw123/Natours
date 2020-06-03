@@ -1,12 +1,42 @@
+// Variables
+$grid-col-count: 12;
+$grid-width: 114rem;
+$gutter-vertical: 2rem;
+$gutter-horizontal: 2rem;
+
+// Calculate column widths
+@function grid-col-width($columnOf, $columns) {
+  @return calc(
+    #{$columnOf} * 
+    ((100% - (#{$gutter-horizontal} * (#{$columns} - 1))) / #{$columns})
+    + (#{$gutter-horizontal} * (#{$columnOf} - 1))
+  );
+}
+
+// Loop to create multiple classes
+@mixin grid-col-x-of-y {
+  @for $y from 1 through $grid-col-count {
+    @for $x from 1 through $y {
+      .col-#{$x}-of-#{$y} { 
+        width: grid-col-width($x, $y);
+      }
+    }
+  }
+}
+
 .row {
   max-width: $grid-width; // 1140px is the standard row width
   margin: 0 auto; // Center horizonally
+  padding: 0 1rem;
 
   &:not(:last-child) {
     margin-bottom: $gutter-vertical;
   }
 
   @include clearfix;
+  
+  //mixin includes a loop to create classes for the various levels of columns
+  @include grid-col-x-of-y;
 
   [class^='col-'] {
     float: left;
@@ -14,8 +44,11 @@
     &:not(:last-child) {
       margin-right: $gutter-horizontal;
     }
-  }
 
-  //mixin includes a loop to create classes for the various levels of columns
-  @include grid-col-x-of-y;
+    @media only screen and (max-width: 767px) {
+      width: 100%;
+    }
+  }
 }
+
+

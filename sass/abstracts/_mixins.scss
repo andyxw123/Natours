@@ -6,13 +6,30 @@
   }
 }
 
-@mixin grid-col-x-of-y {
-  @for $y from 1 through $grid-col-count {
-    @for $x from 1 through $y {
-      .col-#{$x}-of-#{$y} { 
-        width: grid-col-width($x, $y);
+@mixin u-margins {
+    @for $x from 1 through 10 {
+      .u-mt-#{$x} { 
+        margin-top: #{$x}rem;
+      }
+      .u-mr-#{$x} { 
+        margin-right: #{$x}rem;
+      }
+      .u-mb-#{$x} { 
+        margin-bottom: #{$x}rem;
+      }
+      .u-ml-#{$x} { 
+        margin-left: #{$x}rem;
       }
     }
-  }
 }
 
+@mixin text-gradient($from-color, $to-color) {
+  background-image: linear-gradient(
+    to right,
+    $from-color,
+    $to-color
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}

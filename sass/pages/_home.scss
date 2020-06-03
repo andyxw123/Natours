@@ -1,0 +1,27 @@
+.section-about {
+    margin-top: -20vh;
+    background-color: $color-grey-light-1;
+    padding: 25rem 0;
+}
+
+.section-features {
+    margin-top: -15vh;
+    padding: 20rem 0;
+    background-image: linear-gradient(
+        to right bottom,
+        // SASS allows you to put HEX colours in RGBA values
+          rgba($color-primary-light, 0.801),
+        rgba($color-primary-dark, 0.808)
+      ),
+      url('../img/nat-4.jpg');
+      background-size: cover;
+
+      transform: skewY(-7deg);
+
+      // > is the "direct child" selector
+      // The selector below means
+      // "all elements which are the direct child of the parent"
+      & > * { 
+        transform: skewY(7deg);
+      }
+}
