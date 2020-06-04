@@ -36,6 +36,15 @@
     }
   }
 
+  &--primary {
+    background-color: $color-primary;
+    color: $color-white;
+
+    &::after {
+      background-color: $color-primary;
+    }
+  }
+
   /* Add an "after" pseudo element that looks the same as the btn
    It is treated the same way as a child element so 100% h & w
    makes it the same size.

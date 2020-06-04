@@ -10,8 +10,10 @@
     url('../img/hero.jpg');
   background-size: cover;
   background-position: top;
-  /* Clip the bottom of the image
-    ...coordinates clockwise from top left */
+  // Clip the bottom of the image
+  // ...coordinates clockwise from top left
+  // NOTE: Not supported by IE
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 
   &__logo-box {

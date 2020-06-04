@@ -1,0 +1,224 @@
+/*
+  SUMMARY
+  • Aim to create a card "flip" effect on the Y axis
+  • Absolutely postion a front and back face divs
+    (NOTE: the parent of the front & back will collapse
+           make the parent height 100% otherise will clip the flip)
+  • Set backface-visibility: hidden to only make the "shown" visible
+    and initialise the backface with transform: rotateY(180deg)
+    so it starts in a flipped state
+  • On card hover use transform: rotateY(180deg) to make the flip
+    (FOR .card:hover .card__side--front AND 
+         .card:hover .card__side--front)
+  • Set perspective: 250rem; to make the flip look 3D
+  • Use clip-path to shape the front card immage
+  • Use background-blend-mode to colorise the front card image
+*/
+
+.card {
+  // FUNCTIONALITY
+
+  //Put a large perspective value on the parent so that the rotateY
+  //transform has a "3D" look to it.
+  //(determines the distance between the z=0 plane and the user)
+  perspective: 250rem;
+  position: relative;
+
+  // Need to specify the height of the parent .card div as otherwise
+  // its height will collapse as the .card__side divs are taken out
+  // of the natural flow as they are absolutely positioned.
+  // Otherwise the perspective effect will be compromised on
+  // the rotateY transform.
+  height: 47rem;
+
+  &__side {
+    font-size: 2rem;
+    transition: all 0.8s ease-in-out;
+    // Position card sides absolutely so they lie on top of each other
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    //Hide the backface when flipped
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: $border-radius-sm;
+    //Add overflow so that the corners of the card__picture are clipped
+    overflow: hidden;
+    box-shadow: $shadow-default;
+
+    &--front {
+      background-color: $color-white;
+    }
+
+    &--back {
+      color: $color-white;
+      //Initialise the backface as flipped. The back element sits on top
+      //of the front one so won't be be seen initially due to
+      //backface-visibility: hidden;
+      transform: rotateY(180deg);
+
+      &--1 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-secondary-light,
+          $color-secondary-dark
+        );
+      }
+
+      &--2 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-primary-light,
+          $color-primary-dark
+        );
+      }
+
+      &--3 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-tertiary-light,
+          $color-tertiary-dark
+        );
+      }
+    }
+  }
+
+  &:hover &__side--front {
+    //.card:hover .card__side--front
+    //Use a negative degree so the face rotates the correct way
+    transform: rotateY(-180deg);
+  }
+
+  &:hover &__side--back {
+    // .card:hover .card__side--back
+    transform: rotateY(0deg);
+  }
+
+  // FRONT SIDE STYLING
+  &__picture {
+    background-size: cover;
+    height: 23rem;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    //Set the blend mode to combine the image background & gradient
+    //NOTE: Not supported by IE
+    background-blend-mode: screen;
+
+    &--1 {
+      background-image: linear-gradient(
+          to right bottom,
+          $color-secondary-light,
+          $color-secondary-dark
+        ),
+        url(../img/nat-5.jpg);
+    }
+
+    &--2 {
+      background-image: linear-gradient(
+          to right bottom,
+          $color-primary-light,
+          $color-primary-dark
+        ),
+        url(../img/nat-6.jpg);
+    }
+
+    &--3 {
+      background-image: linear-gradient(
+          to right bottom,
+          $color-tertiary-light,
+          $color-tertiary-dark
+        ),
+        url(../img/nat-6.jpg);
+    }
+  }
+
+  &__heading {
+    font-size: 2.8rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-align: right;
+    color: $color-white;
+    position: absolute;
+    top: 12rem;
+    right: 3rem;
+    width: 75%;
+    line-height: 1.7;
+  }
+
+  &__heading-span {
+    padding: 1rem 1.5rem;
+
+    // Applies the padding to the sides of the text where it breaks
+    // to a new line
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+
+    &--1 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($color-secondary-light, 0.8),
+        rgba($color-secondary-dark, 0.8)
+      );
+    }
+
+    &--2 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($color-primary-light, 0.8),
+        rgba($color-primary-dark, 0.8)
+      );
+    }
+
+    &--3 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($color-tertiary-light, 0.8),
+        rgba($color-tertiary-dark, 0.8)
+      );
+    }
+  }
+
+  &__details {
+    ul {
+      list-style: none;
+      width: 80%;
+      margin: 0 auto;
+      text-align: center;
+      font-size: 1.5rem;
+
+      li {
+        padding: 1rem;
+
+        &:not(:last-child) {
+          border-bottom: 1px solid $color-grey-light-2;
+        }
+      }
+    }
+  }
+
+  //BACK SIDE STYLING
+  &__cta {
+    text-align: center;
+    position: absolute;
+    width: 90%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__price-box {
+    margin-bottom: 8rem;
+  }
+
+  &__price-only {
+    text-transform: uppercase;
+  }
+
+  &__price-value {
+    font-size: 6rem;
+    font-weight: 300;
+    line-height: 1;
+  }
+}

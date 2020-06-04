@@ -25,3 +25,51 @@
         transform: skewY(7deg);
       }
 }
+
+.section-tours {
+  margin-top: -20vh;
+  background-color: $color-grey-light-1;
+  padding: 30rem 0 25rem 0;
+}
+
+.section-stories {
+  clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+  position: relative;
+  padding-top: 25rem;
+  margin-top: -20rem;
+  overflow: hidden;
+  background-color: $color-white;
+}
+
+.section-book {
+  padding: 15rem 0;
+
+  background-image: linear-gradient(
+    to right bottom,
+      $color-primary-light,
+      $color-primary-dark
+  );
+}
+
+.book {
+  // To produce a white mask covering the book element with an 
+  // angled boundary midway at 105 degrees
+  // Can set a linear-gradient with percentage steps with a
+  // transparent which from the left side to mid-way
+  background-image: linear-gradient(
+    105deg, 
+    rgba($color-white, .85) 0%,
+    rgba($color-white, .85) 50%, 
+    transparent 50%), 
+    url(../img/nat-10.jpg);
+  background-size: cover;
+  height: 50rem;
+  border-radius: $border-radius-sm;
+  overflow: hidden;
+  box-shadow: 0 1.5rem 2em rgba($color-black, .2);
+
+  &__form {
+    width: 50%;
+    padding: 6rem;
+  }
+}

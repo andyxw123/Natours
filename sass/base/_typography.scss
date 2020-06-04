@@ -49,12 +49,12 @@ body {
 
 // Add a graduated color fill to text by clipping the text to the background
 .heading-secondary {
-  font-size: 3.0rem;
+  font-size: 3rem;
   text-transform: uppercase;
   font-weight: 700;
   @include text-gradient($color-primary, $color-primary-dark);
   letter-spacing: 2px;
-  transition: all .3s;
+  transition: all 0.3s;
   &:hover {
     transform: skewY(2deg) skewX(15deg) scale(1.1);
     text-shadow: 0.5rem 1rem 2rem rgba($color-black, 0.2);
