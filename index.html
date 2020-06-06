@@ -65,6 +65,7 @@
                 </div>
             </div>
         </section>
+
         <section class="section-features">
             <div class="row">
                 <div class="col-1-of-4">
@@ -105,6 +106,7 @@
                 </div>
             </div>
         </section>
+
         <section class="section-tours">
             <div class="u-text-align-center u-mb-8">
                 <h2 class="heading-secondary">
@@ -128,7 +130,7 @@
                                     <li>3 day tour</li>
                                     <li>Up to 30 people</li>
                                     <li>2 tour guides</li>
-                                    <li>Sleep in cosy </li>
+                                    <li>Sleep in cosy hotels</li>
                                     <li>Difficulty: Very Easy</li>
                                 </ul>
                             </div>
@@ -229,13 +231,13 @@
 
         <section class="section-stories">
             <div class="bg-video">
-                <video class="bg-video__content" autoplay muted loop>
-                    <!-- Include mp4 and webm to allow support by 
+                <!-- Include mp4 and webm to allow support by 
                     as many browsers as possible -->
+                <video-axw class="bg-video__content" autoplay muted loop>
                     <source src="img/video.mp4" type="video/mp4">
                     <source src="img/video.webm" type="video/webm">
                     Your browser is not supported
-                </video>
+                </video-axw>
             </div>
             <div class="u-text-align-center u-mb-8">
                 <h2 class="heading-secondary">
@@ -288,35 +290,101 @@
                 </div>
             </div>
         </section>
+
         <section class="section-book">
             <div class="row">
                 <div class="book">
-                   <div class="u-text-align-center u-mt-3">
-                            <h2 class="heading-secondary">
-                                Start booking now
-                            </h2>
-                        </div>
-                    <!-- <div class="book__form">
+                    <div class="u-text-align-center u-mt-3">
+                        <h2 class="heading-secondary">
+                            Start booking now
+                        </h2>
+                    </div>
+                    <div class="book__form">
+
                         <form action="#" class="form">
-                            <div class="form-group">
-                                <input id="name" type="text" class="form__input" placeholder="Full Name" required>
+                            <div class="form__group">
+                                <input id="name" type="text" class="form__input" name="fullName" placeholder="Full Name"
+                                    required>
                                 <label for="name" class="form__label">Full Name</label>
                             </div>
-                            <div class="form-group">
-                                <input id="email" type="email" class="form__input" placeholder="Email Address" required>
-                                <label for="email" class="form__label">Email</label>
+                            <div class="form__group">
+                                <input id="email" type="email" class="form__input" name="email"
+                                    placeholder="Email Address" required>
+                                <label for="email" class="form__label">Email Address</label>
+                            </div>
+                            <div class="form__group">
+                                <div class="form__radio-group">
+                                    <input type="radio" class="form__radio-input" name="group-size" id="small-group"
+                                        value="small" checked>
+                                    <label for="small-group" class="form__radio-label">
+                                        <span class="form__radio-button"></span>
+                                        Small Group
+                                    </label>
+                                </div>
+                                <div class="form__radio-group">
+                                    <input type="radio" class="form__radio-input" name="group-size" id="large-group"
+                                        value="large">
+                                    <label for="large-group" class="form__radio-label">
+                                        <span class="form__radio-button"></span>
+                                        Large Group
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form__group">
+                                <button type="submit" class="btn btn--primary" value="Submit">Next step &rarr;</button>
                             </div>
                         </form>
-                    </div> -->
+                    </div>
                 </div>
             </div>
-
         </section>
     </main>
 
-    <footer>
+    <footer class="footer">
+        <div class="footer__logo-box">
+            <img src="img/logo-green-2x.png" alt="Full logo" class="footer__logo">
+        </div>
+        <div class="row">
+            <div class="col-1-of-2">
+                <div class="footer__navigation">
+                    <ul class="footer__nav-list">
+                        <li class="footer__nav-list-item">
+                            <a href="#" class="footer__nav-link">Company</a>
+                        </li>
+                        <li class="footer__nav-list-item">
+                            <a href="#" class="footer__nav-link">Contact Us</a>
+                        </li>
+                        <li class="footer__nav-list-item">
+                            <a href="#" class="footer__nav-link">Careers</a>
+                        </li>
+                        <li class="footer__nav-list-item">
+                            <a href="#" class="footer__nav-link">Privacy Policy</a>
+                        </li>
+                        <li class="footer__nav-list-item">
+                            <a href="#" class="footer__nav-link">Terms</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-1-of-2">
+                <div class="footer__copyright">
+                    <p>
+                        Natours &copy; 2020
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus dolorem, reiciendis
+                        debitis
+                        tempora ex optio obcaecati vitae ab incidunt veritatis animi alias exercitationem nulla
+                        blanditiis
+                        porro, praesentium hic ullam iste!
+                    </p>
 
+                    </>
+
+                </div>
+            </div>
     </footer>
+    
     <!-- <section class="grid-test">
         <div class="row">
             <div class="col-1-of-2">

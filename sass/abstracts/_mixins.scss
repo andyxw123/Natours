@@ -9,16 +9,16 @@
 @mixin u-margins {
     @for $x from 1 through 10 {
       .u-mt-#{$x} { 
-        margin-top: #{$x}rem;
+        margin-top: #{$x}rem !important;
       }
       .u-mr-#{$x} { 
-        margin-right: #{$x}rem;
+        margin-right: #{$x}rem !important;
       }
       .u-mb-#{$x} { 
-        margin-bottom: #{$x}rem;
+        margin-bottom: #{$x}rem !important;
       }
       .u-ml-#{$x} { 
-        margin-left: #{$x}rem;
+        margin-left: #{$x}rem !important;
       }
     }
 }

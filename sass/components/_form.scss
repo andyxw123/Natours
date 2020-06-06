@@ -1,0 +1,113 @@
+.form {
+  &__group {
+    position: relative;
+
+    &:not(:last-child) {
+      margin-bottom: 3rem;
+    }
+  }
+
+  &__input {
+    width: 90%;
+    display: block;
+    font-size: 1.5rem;
+    padding: 1.5rem 2rem;
+    border-radius: $border-radius-sm;
+    background-color: rgba($color-white, 0.5);
+    border: none;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s;
+
+    //Inputs don't inherit by default
+    font-family: inherit;
+    color: inherit;
+
+    &:focus {
+      outline: none;
+      background-color: $color-white;
+      border-color: $color-primary;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      box-shadow: 0 1rem 2rem rgba($color-black, 0.1);
+
+      &:invalid {
+        border-color: $color-secondary-light;
+      }
+    }
+
+    &::-webkit-input-placeholder {
+      color: $color-grey-dark-2;
+    }
+  }
+
+  &__label {
+    position: absolute;
+    top: 1rem;
+    left: 2rem;
+    transition: all 0.3s;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  &__input:not(:placeholder-shown) ~ &__label {
+    font-size: 1.3rem;
+    font-weight: 700;
+    top: -2rem;
+    left: 0;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__radio-group {
+    display: inline-block;
+    width: 48%;
+
+    &:not(:last-child) {
+      margin-right: 1rem;
+    }
+  }
+
+  &__radio-input {
+    display: none;
+  }
+
+  &__radio-label {
+    cursor: pointer;
+    overflow-wrap: unset;
+    white-space: nowrap;
+  }
+
+  &__radio-button {
+    position: relative;
+    display: inline-block;
+    margin: 0 0.25rem -0.4rem 0;
+    height: 2rem;
+    width: 2rem;
+    border: 0.3rem solid $color-primary;
+    border-radius: 50%;
+
+    &::after {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: $color-primary;
+      display: block;
+      content: '';
+      height: 0.8rem;
+      width: 0.8rem;
+      border: 0.3rem solid $color-primary;
+      border-radius: 50%;
+      opacity: 0;
+      transition: opacity .3s;
+    }
+  }
+
+  //Need to first select the .form__radio-label which is a
+  //sibling of .form-radio-input
+  //Can then select the .form__radio-button contained in
+  //the .form__radio-label
+  &__radio-input:checked ~ &__radio-label &__radio-button::after {
+    opacity: 1;
+  }
+}
