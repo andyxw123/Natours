@@ -1,0 +1,170 @@
+.navigation {
+  //Hidden check box 
+  &__checkbox {
+    display: none;
+  }
+
+  //Show the menu when the hidden checkbox is ticked
+  //Use the "general sibling" combinator (~)
+  &__checkbox:checked ~ &__background {
+    //Enlarge the nav background
+    transform: scale(80);
+  }
+
+  &__checkbox:checked ~ &__nav {
+    // Make the nav menu visible
+    opacity: 1;
+    left: 0;
+  }
+
+  &__toggle,
+  &__background {
+    position: fixed;
+    border-radius: 50%;
+  }
+
+  //NOTE: .navigation__toggle is actually a label linked
+  // to the checkbox by the "for" attribute for="nav-toggle"
+  &__toggle {
+    cursor: pointer;
+    top: 6rem;
+    right: 6rem;
+    height: 7rem;
+    width: 7rem;
+    z-index: 1002;
+    background-color: $color-white;
+    box-shadow: 0rem 1rem 3rem rgba($color-black, 0.1);
+  }
+
+  &__background {
+    top: 6.5rem;
+    right: 6.5rem;
+    height: 6rem;
+    width: 6rem;
+    z-index: 1000;
+    background-image: radial-gradient(
+        $color-primary, 
+        $color-primary-dark 30%);
+    // easeInOutQuint - Custom easing function
+    // https://easings.net/#easeInOutQuint
+    // https://cubic-bezier.com/#.83,0,.17,1
+    transition: all 0.8s cubic-bezier(0.83, 0, 0.17, 1);
+  }
+
+
+  // Because the nav is initially left:100%,
+  // when the checkbox is ticked the nav list will fly in
+  // from right to left:0 when transitioned. The easeInOutBack
+  // easing function gives it a slight bounce out and in
+  &__nav {
+    // easeInOutBack - Custom easing function
+    // https://easings.net/#easeInOutBack
+    // https://cubic-bezier.com/#.68,-0.6,.32,1.6
+    transition: all .8s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 100%;
+    z-index: 1001;
+    opacity: 0;
+
+  }
+
+  &__list {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    list-style: none;
+    text-align: center;
+  }
+
+  &__item {
+    margin: 1rem;
+  }
+
+  &__link {
+    &:link,
+    &:visited {
+      display: inline-block;
+      padding: 1rem;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 3rem;
+      font-weight: 300;
+
+      border-radius: $border-radius-sm;
+
+      transition: all 0.3s;
+      color: $color-white;
+      background-image: linear-gradient(
+        120deg,
+        transparent 0,
+        transparent 50%,
+        $color-white 50%
+      );
+
+      //background size pushes the background off
+      //to the right (by magnifying it)
+      background-size: 250%;
+
+
+      &:hover {
+        //Place the right-hand edge of the background on the
+        //right side - this will push the left side of
+        //the background out to to the left so it looks
+        //like it slides in from the right
+        background-position: right;
+        color: $color-primary;
+        transform: skewY(-7deg);
+      }
+    }
+  }
+
+  &__burger {
+position: relative;
+
+    &,
+    &::before,
+    &::after {
+      content: "";
+      width: 3rem;
+      height: 2px;
+      background-color: $color-grey-dark-3;
+      transition: all .3s;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, 0);
+      display: inline-block;
+    }
+
+    &::before { transform: translate(-50%, -1rem); }
+
+    &::after { transform: translate(-50%, 1rem); }
+  }
+
+  &__checkbox:checked ~ &__toggle &__burger {
+    transform: translateX(-1.5rem);
+    width: 0;
+    background-color: transparent;
+  }
+
+  &__toggle:hover &__burger::before {
+    transform: translate(-50%, -1.3rem);
+  }
+
+  &__toggle:hover &__burger::after {
+    transform: translate(-50%, 1.3rem);
+  }
+
+  &__checkbox:checked ~ &__toggle &__burger::before {
+    transform: rotate(135deg);
+  }
+
+  &__checkbox:checked ~ &__toggle &__burger::after {
+    transform: rotate(-135deg);
+  }
+}
