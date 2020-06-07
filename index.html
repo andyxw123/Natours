@@ -21,6 +21,7 @@
             <span class="navigation__burger">&nbsp;</span>
         </label>
 
+        <img src="img/logo-white.png" alt="Logo" class="navigation__logo">
         <div class="navigation__background">&nbsp;</div>
 
         <nav class="navigation__nav">
@@ -146,7 +147,7 @@
             </div>
         </section>
 
-        <section class="section-tours">
+        <section class="section-tours" id="section-tours">
             <div class="u-text-align-center u-mb-8">
                 <h2 class="heading-secondary">
                     Most popular tours
@@ -184,7 +185,7 @@
                                         $299
                                     </p>
                                 </div>
-                                <a href="#" class="btn btn--white btn--animated">Book now</a>
+                                <a href="#popup" class="btn btn--white btn--animated">Book now</a>
                             </div>
                         </div>
                     </div>
@@ -220,7 +221,7 @@
                                         $499
                                     </p>
                                 </div>
-                                <a href="#" class="btn btn--white btn--animated">Book now</a>
+                                <a href="#popup" class="btn btn--white btn--animated">Book now</a>
                             </div>
                         </div>
                     </div>
@@ -256,7 +257,7 @@
                                         $899
                                     </p>
                                 </div>
-                                <a href="#" class="btn btn--white btn--animated">Book now</a>
+                                <a href="#popup" class="btn btn--white btn--animated">Book now</a>
                             </div>
                         </div>
                     </div>
@@ -272,11 +273,11 @@
             <div class="bg-video">
                 <!-- Include mp4 and webm to allow support by 
                     as many browsers as possible -->
-                <video-axw class="bg-video__content" autoplay muted loop>
+                <video class="bg-video__content" autoplay muted loop>
                     <source src="img/video.mp4" type="video/mp4">
                     <source src="img/video.webm" type="video/webm">
                     Your browser is not supported
-                </video-axw>
+                </video>
             </div>
             <div class="u-text-align-center u-mb-8">
                 <h2 class="heading-secondary">
@@ -417,12 +418,28 @@
                         blanditiis
                         porro, praesentium hic ullam iste!
                     </p>
-
-                    </>
-
                 </div>
             </div>
     </footer>
+
+    <div class="popup" id="popup">
+        <div class="popup__content">
+            <div class="popup__left">
+                <img class="popup__img" src="img/nat-8.jpg" alt="Tour Photo">
+                <img class="popup__img" src="img/nat-9.jpg" alt="Tour Photo">
+            </div>
+            <div class="popup__right">
+                <a href="#section-tours" class="popup__close">&times;</a>
+                <h2 class="heading-secondary">Start Booking Now</h2>
+                <h3 class="heading-tertiary u-mt-1">Important &ndash; Please read these terms before booking</h3>
+                <p class="popup__text u-mt-1">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Error officiis necessitatibus quae dolor maxime cupiditate fuga odio rerum. Itaque incidunt quaerat nemo maxime cum repellendus ut ullam placeat quos facilis!
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Error officiis necessitatibus quae dolor maxime cupiditate fuga odio rerum. Itaque incidunt quaerat nemo maxime cum repellendus ut ullam placeat quos facilis!
+                </p>
+                <a href="#" class="btn btn--primary u-mt-2">Book now</a>
+            </div>
+        </div>
+    </div>
 
     <!-- <section class="grid-test">
         <div class="row">

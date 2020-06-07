@@ -11,6 +11,11 @@
     transform: scale(80);
   }
 
+  &__checkbox:checked ~ &__logo {
+    opacity: 1;
+    top: 6rem;
+  }
+
   &__checkbox:checked ~ &__nav {
     // Make the nav menu visible
     opacity: 1;
@@ -34,6 +39,16 @@
     z-index: 1002;
     background-color: $color-white;
     box-shadow: 0rem 1rem 3rem rgba($color-black, 0.1);
+  }
+
+  &__logo {
+    transition: all .5s cubic-bezier(0.68, -0.6, 0.32, 1.6) .1s;
+    position: fixed;
+    z-index: 1001;
+    height: 3.5rem;
+    left: 6rem;
+    top: -6rem;
+    opacity: 0;
   }
 
   &__background {

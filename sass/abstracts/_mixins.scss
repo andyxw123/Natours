@@ -6,6 +6,13 @@
   }
 }
 
+@mixin abs-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
 @mixin u-margins {
     @for $x from 1 through 10 {
       .u-mt-#{$x} { 
