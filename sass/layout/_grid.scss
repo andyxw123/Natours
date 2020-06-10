@@ -38,6 +38,17 @@ $gutter-horizontal: 2rem;
   //mixin includes a loop to create classes for the various levels of columns
   @include grid-col-x-of-y;
 
+  @include respond(tab-port) {
+    max-width: 80rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+
+  @include respond(phone) {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
   [class^='col-'] {
     float: left;
 
@@ -45,8 +56,15 @@ $gutter-horizontal: 2rem;
       margin-right: $gutter-horizontal;
     }
 
-    @media only screen and (max-width: 767px) {
-      width: 100%;
+    @include respond(tab-port) {
+      float: none;
+      width: 100% !important;
+
+      &:not(:first-child) {
+        margin-right: 0;
+        // Include a margin where a column stacks onto the next row
+        margin-top: $gutter-vertical !important;
+      }
     }
   }
 }

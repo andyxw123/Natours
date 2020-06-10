@@ -18,10 +18,18 @@
   &__copyright {
     border-top: 1px solid $color-grey-dark;
     padding: 2rem 0;
+
+    @include respond(tab-port) {
+      padding-bottom: 0;
+    }
   }
 
   &__navigation {
-      text-align: center;
+      text-align: left;
+
+      @include respond(tab-port) {
+        text-align: center;
+      }
   }
 
   &__copyright {

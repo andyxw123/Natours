@@ -29,7 +29,7 @@
   // of the natural flow as they are absolutely positioned.
   // Otherwise the perspective effect will be compromised on
   // the rotateY transform.
-  height: 47rem;
+  height: 51rem;
 
   &__side {
     font-size: 2rem;
@@ -145,6 +145,12 @@
     right: 3rem;
     width: 75%;
     line-height: 1.7;
+
+    @include respond(tab-port) {
+      top: 10rem;
+      font-size: 3.5rem;
+      width: 40%;
+    }
   }
 
   &__heading-span {
@@ -186,7 +192,6 @@
       width: 80%;
       margin: 0 auto;
       text-align: center;
-      font-size: 1.5rem;
 
       li {
         padding: 1rem;
@@ -220,5 +225,46 @@
     font-size: 6rem;
     font-weight: 300;
     line-height: 1;
+  }
+
+  // For smaller media sizes don't rotate on hover and
+  // just display the front and back following each other
+  @include respond(tab-port) {
+    height: auto;
+
+    &__cta {
+      position: relative;
+    }
+
+    &__side {
+      position: relative;
+      transition: none;
+
+      &--front {
+        padding-bottom: 10rem;
+        transform: none;
+      }
+
+      &--back {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        padding-top: 15rem;
+        margin-top: -10rem;
+        transform: none;
+        clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
+      }
+    }
+
+    &:hover &__side--front {
+      transform: none;
+    }
+
+    &:hover &__side--back {
+      transform: none;
+    }
+
+    &__price-box {
+      margin-bottom: 4rem;
+    }
   }
 }

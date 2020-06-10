@@ -273,6 +273,8 @@
             <div class="bg-video">
                 <!-- Include mp4 and webm to allow support by 
                     as many browsers as possible -->
+                <!-- NOTE: live-server : comment the video tag when using live-server 
+                    otherwse it won't scroll to  the same place after refreshing -->
                 <video class="bg-video__content" autoplay muted loop>
                     <source src="img/video.mp4" type="video/mp4">
                     <source src="img/video.webm" type="video/webm">
@@ -425,8 +427,12 @@
     <div class="popup" id="popup">
         <div class="popup__content">
             <div class="popup__left">
-                <img class="popup__img" src="img/nat-8.jpg" alt="Tour Photo">
-                <img class="popup__img" src="img/nat-9.jpg" alt="Tour Photo">
+                <div class="popup__img-box">
+                    <img class="popup__img" src="img/nat-8.jpg" alt="Tour Photo">
+                </div>
+                <div class="popup__img-box">
+                    <img class="popup__img" src="img/nat-9.jpg" alt="Tour Photo">
+                </div>
             </div>
             <div class="popup__right">
                 <a href="#section-tours" class="popup__close">&times;</a>

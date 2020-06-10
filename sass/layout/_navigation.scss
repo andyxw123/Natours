@@ -14,6 +14,8 @@
   &__checkbox:checked ~ &__logo {
     opacity: 1;
     top: 6rem;
+
+    @include respond(tab-port) { top: 4rem; }
   }
 
   &__checkbox:checked ~ &__nav {
@@ -39,6 +41,16 @@
     z-index: 1002;
     background-color: $color-white;
     box-shadow: 0rem 1rem 3rem rgba($color-black, 0.1);
+
+    @include respond(tab-port) {
+      top: 4rem;
+      right: 4rem;
+    }
+
+    @include respond(phone) {
+      top: 2rem;
+      right: 2rem;
+    }
   }
 
   &__logo {
@@ -49,6 +61,8 @@
     left: 6rem;
     top: -6rem;
     opacity: 0;
+
+    @include respond(tab-port) { left: 4rem; }
   }
 
   &__background {
@@ -64,6 +78,16 @@
     // https://easings.net/#easeInOutQuint
     // https://cubic-bezier.com/#.83,0,.17,1
     transition: all 0.8s cubic-bezier(0.83, 0, 0.17, 1);
+
+    @include respond(tab-port) {
+      top: 4.5rem;
+      right: 4.5rem;
+    }
+
+    @include respond(phone) {
+      top: 2.5rem;
+      right: 2.5rem;
+    }
   }
 
 

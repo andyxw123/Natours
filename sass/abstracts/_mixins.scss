@@ -40,3 +40,60 @@
   background-clip: text;
   color: transparent;
 }
+
+// MEDIA QUERY MANAGER
+/*
+    "max-width" media queries
+    -------------------------
+    0 - 600px       Phone
+    600 - 900px     Tablet Portrait
+    900 - 1200px    Tablet Landscape
+
+    Default Styles (no media queries)
+    ---------------------------------
+    1200 - 1800px   Desktop
+
+    "min-width" media queries
+    -------------------------
+    1800 +          Big Desktop
+*/
+
+/*
+  $breakpoint options
+    - phone     < 600px  ... 37.5em  (600 / 16px)
+    - tab-port  < 900px  ... 56.25em
+    - tab-land  < 1200px ... 75em
+    - desk-big  > 1800px ... 112.5em
+
+    NOTE1: rems DON'T work in all browsers for media queries.
+           Therefore use ems instead.
+
+    NOTE2: Media queries don't use the html font size
+          (i.e. 62.5% as declared in _base.scss) and the 
+          browser's default font size is used
+          so here 1em = 16px.
+
+
+    WORK THROUGH THE PROJECT AND APPLY MEDIA QUERIES
+    IN THE FOLLOWIN ORDER...
+      1) Base & Typography
+      2) General & Grid layout
+      3) Page layout
+      4) Components
+
+
+*/
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {    
+    @media (max-width: 37.5em) { @content };  // 600px
+  }
+  @if $breakpoint == tab-port { 
+    @media (max-width: 56.25em) { @content }; // 900px
+  }
+  @if $breakpoint == tab-land { 
+    @media (max-width: 75em) { @content };    // 1200px
+  }
+  @if $breakpoint == desk-big { 
+    @media (min-width: 112.5em) { @content }; // 1800px
+  }
+}
