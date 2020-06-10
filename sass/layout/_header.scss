@@ -1,5 +1,5 @@
 .header {
-  height: 95vh;
+  height: 85vh;
   position: relative;
   background-image: linear-gradient(
       to right bottom,
@@ -7,18 +7,37 @@
         rgba($color-primary-light, 0.801),
       rgba($color-primary-dark, 0.808)
     ),
-    url('../img/hero.jpg');
+    url('../img/hero-small.jpg');
+
+  //Use a larger image for high resolution screens (DPR 2.0+)
+  // 37.5em = 600px / 16px
+  // 125em = 2000px / 16px
+  // NOTE: min-resolution doesn't work in Safari - use -webkit-min-device-pixel-ratio instead
+  @media (min-resolution: 192dpi) and (min-width: 37.5em),
+    (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
+    (min-width: 125em) {
+    background-image: linear-gradient(
+        to right bottom,
+        rgba($color-primary-light, 0.801),
+        rgba($color-primary-dark, 0.808)
+      ),
+      url('../img/hero.jpg');
+  }
+
   background-size: cover;
   background-position: top;
   // Clip the bottom of the image
   // ...coordinates clockwise from top left
   // NOTE: Not supported by IE
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 
-  @include respond(phone) {
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
-    clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+    @include respond(phone) {
+      -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+      clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+    }
+    height: 95vh;
   }
 
   &__logo-box {

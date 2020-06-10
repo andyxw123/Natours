@@ -98,9 +98,21 @@
                 </div>
                 <div class="col-1-of-2">
                     <div class="composition">
-                        <img src="img/nat-1-large.jpg" alt="Photo 1" class="composition__photo composition__photo--p1">
+                        <!-- Responsive Images - Resolution Switching 
+                        The browser will choose which image to download based on its pixel density and viewport size-->
+                        <img src="img/nat-1-large.jpg" srcset="img/nat-1.jpg 300w, img/nat-1-large.jpg 1000w"
+                            sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px" alt="Photo 1"
+                            class="composition__photo composition__photo--p1">
+                        <img src="img/nat-2-large.jpg" srcset="img/nat-2.jpg 300w, img/nat-2-large.jpg 1000w"
+                            sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px" alt="Photo 2"
+                            class="composition__photo composition__photo--p2">
+                        <img src="img/nat-3-large.jpg" srcset="img/nat-3.jpg 300w, img/nat-3-large.jpg 1000w"
+                            sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px" alt="Photo 3"
+                            class="composition__photo composition__photo--p3">
+
+                        <!-- <img src="img/nat-1-large.jpg" alt="Photo 1" class="composition__photo composition__photo--p1">
                         <img src="img/nat-2-large.jpg" alt="Photo 2" class="composition__photo composition__photo--p2">
-                        <img src="img/nat-3-large.jpg" alt="Photo 3" class="composition__photo composition__photo--p3">
+                        <img src="img/nat-3-large.jpg" alt="Photo 3" class="composition__photo composition__photo--p3"> -->
                     </div>
                 </div>
             </div>
@@ -275,11 +287,11 @@
                     as many browsers as possible -->
                 <!-- NOTE: live-server : comment the video tag when using live-server 
                     otherwse it won't scroll to  the same place after refreshing -->
-                <video class="bg-video__content" autoplay muted loop>
+                <video-axw class="bg-video__content" autoplay muted loop>
                     <source src="img/video.mp4" type="video/mp4">
                     <source src="img/video.webm" type="video/webm">
                     Your browser is not supported
-                </video>
+                </video-axw>
             </div>
             <div class="u-text-align-center u-mb-8">
                 <h2 class="heading-secondary">
@@ -384,7 +396,14 @@
 
     <footer class="footer">
         <div class="footer__logo-box">
-            <img src="img/logo-green-2x.png" alt="Full logo" class="footer__logo">
+            <!-- Responsive images -->
+            <picture class="footer__logo">
+                <!-- Art Direction - Specify mutiple sources for various media sizes -->
+                <source srcset="img/logo-green-small-1x.png 1x, img/logo-green-small-2x.png 2x"
+                    media="(max-width: 37.5em)">
+                <!-- Fallback image - using srcset to specify images for Density Switching -->
+                <img srcset="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x" alt="Full logo">
+            </picture>
         </div>
         <div class="row">
             <div class="col-1-of-2">
@@ -439,8 +458,12 @@
                 <h2 class="heading-secondary">Start Booking Now</h2>
                 <h3 class="heading-tertiary u-mt-1">Important &ndash; Please read these terms before booking</h3>
                 <p class="popup__text u-mt-1">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Error officiis necessitatibus quae dolor maxime cupiditate fuga odio rerum. Itaque incidunt quaerat nemo maxime cum repellendus ut ullam placeat quos facilis!
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Error officiis necessitatibus quae dolor maxime cupiditate fuga odio rerum. Itaque incidunt quaerat nemo maxime cum repellendus ut ullam placeat quos facilis!
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Error officiis necessitatibus quae dolor
+                    maxime cupiditate fuga odio rerum. Itaque incidunt quaerat nemo maxime cum repellendus ut ullam
+                    placeat quos facilis!
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Error officiis necessitatibus quae dolor
+                    maxime cupiditate fuga odio rerum. Itaque incidunt quaerat nemo maxime cum repellendus ut ullam
+                    placeat quos facilis!
                 </p>
                 <a href="#" class="btn btn--primary u-mt-2">Book now</a>
             </div>

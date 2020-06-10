@@ -2,7 +2,7 @@
   width: 75%;
   margin: 0 auto;
   box-shadow: 0 3rem 6rem rgba($color-black, 0.1);
-  background-color: rgba($color-white, .6);
+  background-color: rgba($color-white, 0.6);
   border-radius: $border-radius-sm;
   padding: 6rem 6rem 6rem 9rem;
   transform: skewX(-12deg);
@@ -18,7 +18,7 @@
     transform: skewX(12deg);
 
     @include respond(phone) {
-      transform: skewX(0); 
+      transform: skewX(0);
     }
   }
 
@@ -31,13 +31,18 @@
     //Make the text contained in the div to the right
     //of this element wrap around a circle
     float: left;
-    shape-outside: circle(50% at 50% 50%);
+    overflow: hidden;
+    border-radius: 50%;;
 
-    -webkit-clip-path: circle(50% at 50% 50%);
-    clip-path: circle(50% at 50% 50%);
+    @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+      -webkit-clip-path: circle(50% at 50% 50%);
+      clip-path: circle(50% at 50% 50%);
+      shape-outside: circle(50% at 50% 50%);
+      border-radius: none;
+    }
 
     //Move the shape out from the text slightly
-    //Need to also specifically skew the shape back - the 
+    //Need to also specifically skew the shape back - the
     //addtion .01 degree resolves a small artifact that appears
     //during the hover
     transform: translateX(-3rem) skewX(12.01deg);

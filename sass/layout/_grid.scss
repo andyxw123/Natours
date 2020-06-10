@@ -5,10 +5,12 @@ $gutter-vertical: 2rem;
 $gutter-horizontal: 2rem;
 
 // Calculate column widths
+// NOTE: Subtracting from 100% caused unwanred wrapping the last column
+//       but using 99.9% seems to resolve the issue
 @function grid-col-width($columnOf, $columns) {
   @return calc(
     #{$columnOf} * 
-    ((100% - (#{$gutter-horizontal} * (#{$columns} - 1))) / #{$columns})
+    ((99.9% - (#{$gutter-horizontal} * (#{$columns} - 1))) / #{$columns})
     + (#{$gutter-horizontal} * (#{$columnOf} - 1))
   );
 }

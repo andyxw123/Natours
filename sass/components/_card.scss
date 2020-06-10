@@ -100,17 +100,23 @@
   &__picture {
     background-size: cover;
     height: 23rem;
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+
+    @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+      -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+      clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    }
+
     //Set the blend mode to combine the image background & gradient
     //NOTE: Not supported by IE
-    background-blend-mode: screen;
+    @supports (background-blend-mode: screen) {
+      background-blend-mode: screen;
+    }
 
     &--1 {
       background-image: linear-gradient(
           to right bottom,
-          $color-secondary-light,
-          $color-secondary-dark
+          rgba($color-secondary-light, 0.6),
+          rgba($color-secondary-dark, 0.6)
         ),
         url(../img/nat-5.jpg);
     }
@@ -118,8 +124,8 @@
     &--2 {
       background-image: linear-gradient(
           to right bottom,
-          $color-primary-light,
-          $color-primary-dark
+          rgba($color-primary-light, 0.6),
+          rgba($color-primary-dark, 0.6)
         ),
         url(../img/nat-6.jpg);
     }
@@ -127,10 +133,10 @@
     &--3 {
       background-image: linear-gradient(
           to right bottom,
-          $color-tertiary-light,
-          $color-tertiary-dark
+          rgba($color-tertiary-light, 0.6),
+          rgba($color-tertiary-dark, 0.6)
         ),
-        url(../img/nat-6.jpg);
+        url(../img/nat-7.jpg);
     }
   }
 
@@ -155,34 +161,40 @@
 
   &__heading-span {
     padding: 1rem 1.5rem;
+    font-weight: 400;
 
     // Applies the padding to the sides of the text where it breaks
     // to a new line
-    -webkit-box-decoration-break: clone;
-    box-decoration-break: clone;
+    @supports (-webkit-box-decoration-break: clone) or
+      (box-decoration-break: clone) {
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
 
-    &--1 {
-      background-image: linear-gradient(
-        to right bottom,
-        rgba($color-secondary-light, 0.8),
-        rgba($color-secondary-dark, 0.8)
-      );
-    }
+      font-weight: 300;
 
-    &--2 {
-      background-image: linear-gradient(
-        to right bottom,
-        rgba($color-primary-light, 0.8),
-        rgba($color-primary-dark, 0.8)
-      );
-    }
+      &--1 {
+        background-image: linear-gradient(
+          to right bottom,
+          rgba($color-secondary-light, 0.8),
+          rgba($color-secondary-dark, 0.8)
+        );
+      }
 
-    &--3 {
-      background-image: linear-gradient(
-        to right bottom,
-        rgba($color-tertiary-light, 0.8),
-        rgba($color-tertiary-dark, 0.8)
-      );
+      &--2 {
+        background-image: linear-gradient(
+          to right bottom,
+          rgba($color-primary-light, 0.8),
+          rgba($color-primary-dark, 0.8)
+        );
+      }
+
+      &--3 {
+        background-image: linear-gradient(
+          to right bottom,
+          rgba($color-tertiary-light, 0.8),
+          rgba($color-tertiary-dark, 0.8)
+        );
+      }
     }
   }
 
