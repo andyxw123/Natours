@@ -5,6 +5,8 @@ ssl/*
 /dist
 /tmp
 /out-tsc
+/css/style*.css
+
 # Only exists if Bazel was run
 /bazel-out
 
